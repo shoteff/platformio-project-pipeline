@@ -1,5 +1,5 @@
 def platformioBuildScript = 'C://Users/Administrator/Desktop/python-http-server-dont-delete/platformio-build.bat'
-def ftpUploadScript = 'python "C:\\Users\\Administrator\\Desktop\\python-http-server-dont-delete\\upload-firmware-to-ftp.py" ' + pwd()
+def ftpUploadScript = 'python "C:\\Users\\Administrator\\Desktop\\python-http-server-dont-delete\\upload-firmware-to-ftp.py"'
 
 node {
     stage('Checkout') {
@@ -23,7 +23,7 @@ node {
     }
 
     stage('Upload') {
-        powershell ftpUploadScript
+        powershell ftpUploadScript + ' ' + + pwd()
     }    
 
 }
