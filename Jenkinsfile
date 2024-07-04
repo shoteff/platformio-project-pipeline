@@ -12,7 +12,11 @@ node {
         echo ("Checking out GIT repo: " + repoUrl)
         checkout (
             poll: false, 
-            scm: scmGit(branches: [[name: '*/' + masterBranchName]], extensions: [localBranch()], userRemoteConfigs: [[url: repoUrl]])
+            scm: scmGit(
+                branches: [[name: '*/' + masterBranchName]], 
+                extensions: [localBranch(), submodule(recursiveSubmodules: true, reference: '')], 
+                userRemoteConfigs: [[url: repoUrl]]
+                )
         )
     }
 
