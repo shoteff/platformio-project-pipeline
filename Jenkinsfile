@@ -1,10 +1,12 @@
 node {
     stage('Checkout') {
         def repoUrl = env.repositoryUrl
+        def masterBranchName = env.masterBranch
+
         echo ("Checking out GIT repo: " + repoUrl)
         checkout (
             poll: false, 
-            scm: scmGit(branches: [[name: '*/master']], extensions: [localBranch()], userRemoteConfigs: [[url: repoUrl]])
+            scm: scmGit(branches: [[name: '*/' + masterBranchName]], extensions: [localBranch()], userRemoteConfigs: [[url: repoUrl]])
         )
     }
 
