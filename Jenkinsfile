@@ -1,3 +1,5 @@
+def platformioBuildScript = 'C://Users/Administrator/Desktop/python-http-server-dont-delete/platformio-build.bat'
+
 node {
     stage('Checkout') {
         def repoUrl = env.repositoryUrl
@@ -15,7 +17,7 @@ node {
 
     stage('Build') {
         timeout(activity: true, time: 10) {
-        // some block
+            bat platformioBuildScript
         }
     }
 
