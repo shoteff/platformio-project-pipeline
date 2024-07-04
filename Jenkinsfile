@@ -1,7 +1,11 @@
 node {
-
     stage('Checkout') {
-    // some block
+        def repoUrl = env.repositoryUrl
+        echo ("Checking out GIT repo: " + repoUrl)
+        checkout (
+            poll: false, 
+            scm: scmGit(branches: [[name: '*/master']], extensions: [localBranch()], userRemoteConfigs: [[url: repoUrl]])
+        )
     }
 
     stage('Build') {
