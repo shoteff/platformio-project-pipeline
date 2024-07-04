@@ -23,7 +23,7 @@ node {
     }
 
     stage('Upload') {
-        powershell ftpUploadScript + ' ' + + pwd()
+        powershell ftpUploadScript + ' ' + pwd()
     }    
 
 }
