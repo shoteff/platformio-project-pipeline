@@ -3,6 +3,9 @@ node {
         def repoUrl = env.repositoryUrl
         def masterBranchName = env.masterBranch
 
+        echo ("Cleaning workspace...")
+        cleanWs()
+
         echo ("Checking out GIT repo: " + repoUrl)
         checkout (
             poll: false, 
