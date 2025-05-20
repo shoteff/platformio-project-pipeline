@@ -15,7 +15,7 @@ node {
             scm: scmGit(
                 branches: [[name: '*/' + masterBranchName]], 
                 extensions: [localBranch(), submodule(recursiveSubmodules: true, reference: '')], 
-                userRemoteConfigs: [[url: repoUrl]]
+                userRemoteConfigs: [[credentialsId: 'Github_creds', url: repoUrl]]
                 )
         )
     }
