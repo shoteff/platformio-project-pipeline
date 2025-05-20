@@ -15,7 +15,7 @@ node {
             scm: scmGit(
                 branches: [[name: '*/' + masterBranchName]], 
                 extensions: [localBranch(), submodule(recursiveSubmodules: true, reference: '')], 
-                userRemoteConfigs: [[credentialsId: 'GitHub - win-srv-2019 platformio build', url: repoUrl]]
+                userRemoteConfigs: [[url: repoUrl]]
                 )
         )
     }
